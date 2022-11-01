@@ -1,0 +1,336 @@
+/* 
+Reset:
+Padding og margin fjernes, margin og border regnes med i bredden.
+*/
+*{ 
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+/*----MAIN----*/
+main{ 
+    font-family: 'IBM Plex Serif', serif;
+}
+
+
+
+
+/*----HEADER:----*/
+header{
+    position: fixed;
+    z-index: 1;
+    
+    top:0px;
+    width:100%;
+    height:100px;
+    
+    display:flex; /* For at kunne distribuere boksene inden i.*/
+    justify-content:space-around;
+    align-items:center;
+
+    background-color: rgb(31,35,54);
+    border-bottom:1px solid rgba(255,255,255,0.5); /* Den lille linje i bunden. */
+    font-family: 'IBM Plex Serif', serif;
+}
+
+
+
+
+/* Billeder skal fylde 100*% i deres container: 
+Logo og burger */
+#logo > img{
+    width:100%;
+}
+
+#navMobile > a > img{
+    width:100%; 
+}
+
+.mainimg{
+    width: 100%;
+}
+
+
+
+
+
+.kolonneimg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.kolonnesektion{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 8px 50px 0 50px; 
+}
+
+.kolonne{
+    position: relative;
+    background-color: gray;
+    width: 275px;
+    text-align: left;
+    margin: 8px;
+    height: 379px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.kolonnesektion > div:first-child{
+    position: relative;
+    background-color: black;
+    width: 565px;
+    text-align: left;
+    margin: 8px;
+    height: 379px;
+    padding: 20px;
+    border-radius: 15px;
+    background-image: url(images/tilskuere.jpg);
+    background-size: cover;
+}
+
+
+
+.overskrift hr{
+    margin-right: 60px;
+    
+}
+
+/*----TEKST----*/
+.overskrift{
+    padding: 80px 0 10px 60px;
+    font-size: 20px;
+}
+
+.kolonne h5{
+    color: white;
+    position: relative;
+}
+
+.kolonne h1{
+    color: white;
+    position: relative;
+    padding: 20px 0 0 0;
+}
+
+.kolonne h6{
+    color: white;
+    position: absolute;
+    bottom: 20px;
+}
+
+.kolonne2 h5{
+    color: white;
+    position: relative;
+}
+
+.kolonne2 h1{
+    color: white;
+    position: relative;
+    padding: 20px 0 0 0;
+}
+
+.kolonne2 h6{
+    color: white;
+    position: absolute;
+    bottom: 40px;
+}
+
+
+
+
+
+
+.kolonnesektion2{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 5px 50px 10px 50px;
+}
+
+.kolonne2{
+    background-color: grey;
+    width: 275px;
+    text-align: left;
+    margin: 8px;
+    height: 379px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.kolonnesektion2 > div:nth-child(2){
+    background-color: black;
+    width: 565px;
+    text-align: left;
+    margin: 8px;
+    height: 379px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+/* CARDS: */
+/* This is the box that contains the cards. 
+Responsibility: 
+- Display the cards with flexbox, 
+- Use flex wrap to make the cards go underneath each other when there is too little space.
+- Fill out the entire browser window.
+*/
+.cards {
+    display:flex;
+    justify-content:space-around;
+    width:100%;
+    flex-wrap:wrap;
+    padding: 10px 40px 0 40px;
+}
+
+/* This is the card itself. 
+This set of rules is for all sections inside the section with the class 'cards'.
+They have a fixed width for the wrapping to work!
+The height can be temporary, but they are supposed to be the same height regardless of the content.
+*/
+.cards div{
+    width:500px;
+    padding-bottom:5px;
+
+    background-color:white;
+    border:1px solid white;
+    border-radius:10px;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+    text-transform:uppercase;
+    text-align:center;
+
+}
+
+.cards div p, .cards div h2{
+    margin:15px;
+}
+
+/* This is for images inside the cards. 
+The image is supposed to fill out the card and is therefore 100%.
+*/
+.cards img{
+    width:100%;
+}
+
+
+
+
+
+
+/* RESPONSIVE: */
+/* MOBIL: */
+@media screen and (max-width:910px){
+    /*Distribuer elementer anderledes:*/
+    header{
+        justify-content:space-between ;
+        padding-left:10px;
+        padding-right:10px;
+    }
+    
+    /* Skjul laptopmenuen. */
+    #navLaptop {
+        display:none; 
+    }
+
+    /* Burgermenuen skal have en bredde */
+    #navMobile{ 
+        width:50px;
+    }
+
+    #logo{ /* Logoet skal være mindre på mobil. */
+        width:80px;
+    }  
+    
+    
+
+  .kolonnesektion{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kolonne{
+        width: 90%;
+    }
+
+    .kolonnesektion > div:first-child{
+        width: 90%;
+    }
+
+    .kolonnesektion2 > div:nth-child(2) {
+        width: 90%;
+    }
+
+    .kolonnesektion2{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kolonne2{
+        width: 90%;
+    }
+
+
+    .cards div{
+        width:90%;
+        margin-bottom:10px;
+
+    }
+}
+
+/* LAPTOP: */
+@media screen and (min-width: 910px){
+    /* HEADER: LOGO*/
+    #logo {/* Logoet. Er i en div fordi det spiller bedre med flexbox. */
+        width:200px;
+        margin:30px;
+        position:relative;
+        top:70px;
+    }
+
+    /* Skjul mobilmenuen.*/
+    #navMobile{
+        display:none;
+    }
+
+    /* Vis laptopmenuen og samtidig gør den til flex container. */
+    #navLaptop {
+        display:flex; 
+        justify-content:space-around;
+        width:70%;
+        gap:10px;
+    }
+
+    /* Tekstlinks: */
+    nav > a{
+        font-family: 'IBM Plex Serif', serif;
+        text-transform:uppercase;
+        color:white;
+        text-decoration:none;
+        font-size:15pt;
+        font-weight:bold;
+    }
+
+
+
+    .cards div{
+        width:30%;
+        margin-bottom:20px;
+    }
+}
